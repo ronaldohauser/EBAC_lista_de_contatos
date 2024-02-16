@@ -1,14 +1,8 @@
-export const addContact = (contact) => ({
-  type: 'ADD_CONTACT',
-  payload: contact,
-});
+const createAction = (type, payload) => ({ type, payload });
 
-export const removeContact = (id) => ({
-  type: 'REMOVE_CONTACT',
-  payload: id,
-});
+export const addContact = (contact) => createAction('ADD_CONTACT', contact);
 
-export const editContact = (id, updatedContact) => ({
-  type: 'EDIT_CONTACT',
-  payload: { id, updatedContact },
-});
+export const removeContact = (id) => createAction('REMOVE_CONTACT', id);
+
+export const editContact = (id, updatedContact) =>
+  createAction('EDIT_CONTACT', { id, updatedContact });

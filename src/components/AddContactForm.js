@@ -12,11 +12,13 @@ import {
 const AddContactForm = () => {
   const dispatch = useDispatch();
 
-  const [contact, setContact] = useState({
+  const initialState = {
     fullName: '',
     email: '',
     phone: '',
-  });
+  };
+
+  const [contact, setContact] = useState(initialState);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,22 +28,22 @@ const AddContactForm = () => {
     });
   };
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const isFormValid = () => {
+    const { fullName, email, phone } = contact;
+    return fullName.trim() !== '' && isValidEmail(email) && phone.trim() !== '';
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (
-      contact.fullName &&
-      emailRegex.test(contact.email) &&
-      contact.phone
-    ) {
+    if (isFormValid()) {
       dispatch(addContact(contact));
-      setContact({
-        fullName: '',
-        email: '',
-        phone: '',
-      });
+      setContact(initialState);
     } else {
       alert('Por favor, preencha todos os campos corretamente.');
     }

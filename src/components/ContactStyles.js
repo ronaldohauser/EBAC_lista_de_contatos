@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContactContainer = styled.div`
+const baseContainerStyles = `
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -8,6 +8,10 @@ export const ContactContainer = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   margin: 0 auto;
+`;
+
+export const ContactContainer = styled.div`
+  ${baseContainerStyles}
   text-align: center;
 `;
 
@@ -32,13 +36,7 @@ export const Button = styled.button`
 `;
 
 export const FormContainer = styled.div`
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  margin: 0 auto;
+  ${baseContainerStyles}
   text-align: center;
 `;
 

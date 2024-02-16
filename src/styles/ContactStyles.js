@@ -1,28 +1,37 @@
 import styled from 'styled-components';
 
+const themeColors = {
+  primary: '#008CBA',
+  secondary: '#4caf50',
+  background: '#fff',
+  border: '#ccc',
+  shadow: 'rgba(0, 0, 0, 0.1)',
+};
+
 export const ContactContainer = styled.div`
   margin: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid ${themeColors.border};
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px ${themeColors.shadow};
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
+  background-color: ${themeColors.background};
 `;
 
 export const ContactItem = styled.li`
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid ${themeColors.border};
   border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: ${themeColors.background};
+  box-shadow: 0 0 5px ${themeColors.shadow};
   text-align: left;
 `;
 
 export const Button = styled.button`
-  background-color: #4caf50;
+  background-color: ${themeColors.secondary};
   color: white;
   padding: 8px;
   border: none;
@@ -34,12 +43,13 @@ export const Button = styled.button`
 export const FormContainer = styled.div`
   margin: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid ${themeColors.border};
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px ${themeColors.shadow};
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
+  background-color: ${themeColors.background};
 `;
 
 export const FormLabel = styled.label`
@@ -56,7 +66,7 @@ export const FormInput = styled.input`
 `;
 
 export const FormButton = styled.button`
-  background-color: #008CBA;
+  background-color: ${themeColors.primary};
   color: white;
   padding: 10px 15px;
   border: none;

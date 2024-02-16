@@ -9,8 +9,8 @@ const ContactList = () => {
 
   const [editedContact, setEditedContact] = useState({ id: null, name: '', email: '', phone: '' });
 
-  const handleEdit = (id, name, email, phone) => {
-    setEditedContact({ id, name, email, phone });
+  const handleEdit = (contact) => {
+    setEditedContact(contact);
   };
 
   const handleSaveEdit = () => {
@@ -28,7 +28,7 @@ const ContactList = () => {
             <Button onClick={() => dispatch(removeContact(contact.id))}>
               Remover
             </Button>
-            <Button onClick={() => handleEdit(contact.id, contact.name, contact.email, contact.phone)}>
+            <Button onClick={() => handleEdit(contact)}>
               Editar
             </Button>
           </ContactItem>

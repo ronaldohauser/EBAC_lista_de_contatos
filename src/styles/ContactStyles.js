@@ -1,4 +1,3 @@
-// src/styles/ContactStyles.js
 import styled from 'styled-components';
 
 export const ContactContainer = styled.div`
@@ -44,14 +43,12 @@ export const FormContainer = styled.div`
 `;
 
 export const FormLabel = styled.label`
-  /* Mantenha os estilos anteriores... */
   display: block;
   margin-bottom: 10px;
   text-align: left;
 `;
 
 export const FormInput = styled.input`
-  /* Mantenha os estilos anteriores... */
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
@@ -69,7 +66,6 @@ export const FormButton = styled.button`
 `;
 
 export const FormInputTel = styled.input`
-  /* Adicione este novo estilo para o campo de telefone */
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;

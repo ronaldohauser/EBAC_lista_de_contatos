@@ -12,13 +12,11 @@ import {
 const AddContactForm = () => {
   const dispatch = useDispatch();
 
-  const initialState = {
-    fullName: '',
+  const [contact, setContact] = useState({
+    name: '',
     email: '',
     phone: '',
-  };
-
-  const [contact, setContact] = useState(initialState);
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,22 +26,18 @@ const AddContactForm = () => {
     });
   };
 
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const isFormValid = () => {
-    const { fullName, email, phone } = contact;
-    return fullName.trim() !== '' && isValidEmail(email) && phone.trim() !== '';
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isFormValid()) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (contact.name && emailRegex.test(contact.email) && contact.phone) {
       dispatch(addContact(contact));
-      setContact(initialState);
+      setContact({
+        name: '',
+        email: '',
+        phone: '',
+      });
     } else {
       alert('Por favor, preencha todos os campos corretamente.');
     }
@@ -56,8 +50,8 @@ const AddContactForm = () => {
         <FormLabel>Nome completo:</FormLabel>
         <FormInput
           type="text"
-          name="fullName"
-          value={contact.fullName}
+          name="name" // Corrigido para 'name' em vez de 'fullName'
+          value={contact.name}
           onChange={handleInputChange}
           placeholder="Digite o nome completo"
         />

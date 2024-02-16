@@ -9,13 +9,17 @@ const ContactList = () => {
 
   const [editedContact, setEditedContact] = useState({ id: null, name: '', email: '', phone: '' });
 
-  const handleEdit = (contact) => {
-    setEditedContact(contact);
+  const handleEdit = (id, name, email, phone) => {
+    setEditedContact({ id, name, email, phone });
   };
 
   const handleSaveEdit = () => {
     dispatch(editContact(editedContact.id, editedContact));
     setEditedContact({ id: null, name: '', email: '', phone: '' });
+  };
+
+  const handleRemove = (id) => {
+    dispatch(removeContact(id));
   };
 
   return (
@@ -25,10 +29,10 @@ const ContactList = () => {
         {contacts.map((contact) => (
           <ContactItem key={contact.id}>
             {contact.name} - {contact.email} - {contact.phone}
-            <Button onClick={() => dispatch(removeContact(contact.id))}>
+            <Button onClick={() => handleRemove(contact.id)}>
               Remover
             </Button>
-            <Button onClick={() => handleEdit(contact)}>
+            <Button onClick={() => handleEdit(contact.id, contact.name, contact.email, contact.phone)}>
               Editar
             </Button>
           </ContactItem>
